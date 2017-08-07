@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.64.36" id="StudentsPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="Students1" RangeSize="25" DataControl="AppModule_AMDataControl" id="Students1Iterator"
+              ChangeEventPolicy="ppr"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="Students1Iterator" id="Stno">
+      <AttrNames>
+        <Item Value="Stno"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Students1Iterator" id="Stname">
+      <AttrNames>
+        <Item Value="Stname"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="Students1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="Students1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="Students1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="Students1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <action IterBinding="Students1Iterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModule_AMDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="AppModule_AMDataControl"/>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="UserspagesFk2_VL"
+  Version="11.1.2.64.36"
+  EntityAssociation="model.BC.ASSs.UserspagesFk2_ASS">
+  <ViewLinkDefEnd
+    Name="Pages"
+    Cardinality="1"
+    Source="true"
+    Owner="model.BC.VOs.Pages_VO">
+    <DesignTime>
+      <Attr Name="_finderName" Value="Pages"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.BC.VOs.Pages_VO.Pageno"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="Userspages"
+    Cardinality="-1"
+    Owner="model.BC.VOs.Userspages_VO">
+    <DesignTime>
+      <Attr Name="_finderName" Value="Userspages"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.BC.VOs.Userspages_VO.Pageno"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>

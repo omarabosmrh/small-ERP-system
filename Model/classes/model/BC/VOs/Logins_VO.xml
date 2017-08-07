@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Logins_VO"
+  Version="11.1.2.64.36"
+  SelectList="Logins_EO.LOGNO, 
+       Logins_EO.USERNAME, 
+       Logins_EO.PASSWORD, 
+       Logins_EO.LOGDATE"
+  FromList="LOGINS Logins_EO"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <EntityUsage
+    Name="Logins_EO"
+    Entity="model.BC.EOs.Logins_EO"/>
+  <ViewAttribute
+    Name="Logno"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Logno"
+    EntityUsage="Logins_EO"
+    AliasName="LOGNO"/>
+  <ViewAttribute
+    Name="Username"
+    PrecisionRule="true"
+    EntityAttrName="Username"
+    EntityUsage="Logins_EO"
+    AliasName="USERNAME"/>
+  <ViewAttribute
+    Name="Password"
+    PrecisionRule="true"
+    EntityAttrName="Password"
+    EntityUsage="Logins_EO"
+    AliasName="PASSWORD"/>
+  <ViewAttribute
+    Name="Logdate"
+    PrecisionRule="true"
+    EntityAttrName="Logdate"
+    EntityUsage="Logins_EO"
+    AliasName="LOGDATE">
+    <TransientExpression><![CDATA[adf.currentDate]]></TransientExpression>
+  </ViewAttribute>
+</ViewObject>

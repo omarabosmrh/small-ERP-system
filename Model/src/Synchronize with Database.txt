@@ -1,0 +1,4 @@
+The following Synchronization Actions were performed successfully:
+
+Entity :Users_EO
+  Create Attribute for column: ADMIN

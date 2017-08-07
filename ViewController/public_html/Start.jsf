@@ -1,0 +1,282 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="Start.jsf" id="d1" binding="#{backingBeanScope.backing_Start.d1}">
+        <af:messages id="m1" binding="#{backingBeanScope.backing_Start.m1}"/>
+        <af:form id="f1" binding="#{backingBeanScope.backing_Start.f1}">
+            <af:panelStretchLayout id="psl1" binding="#{backingBeanScope.backing_Start.psl1}" topHeight="177px"
+                                   bottomHeight="171px">
+                <f:facet name="top">
+                    <af:decorativeBox id="db1" binding="#{backingBeanScope.backing_Start.db1}">
+                        <f:facet name="center">
+                            <af:panelBox text="Login" id="pb1" binding="#{backingBeanScope.backing_Start.pb1}">
+                                <f:facet name="toolbar"/>
+                                <af:panelFormLayout id="pfl1" binding="#{backingBeanScope.backing_Start.pfl1}">
+                                    <af:inputText value="#{bindings.Username.inputValue}"
+                                                  label="#{bindings.Username.hints.label}"
+                                                  required="#{bindings.Username.hints.mandatory}"
+                                                  columns="#{bindings.Username.hints.displayWidth}"
+                                                  maximumLength="#{bindings.Username.hints.precision}"
+                                                  shortDesc="#{bindings.Username.hints.tooltip}" id="it1"
+                                                  binding="#{backingBeanScope.backing_Start.it1}">
+                                        <f:validator binding="#{bindings.Username.validator}"/>
+                                    </af:inputText>
+                                    <af:inputText value="#{bindings.Password.inputValue}"
+                                                  label="#{bindings.Password.hints.label}"
+                                                  required="#{bindings.Password.hints.mandatory}"
+                                                  columns="#{bindings.Password.hints.displayWidth}"
+                                                  maximumLength="#{bindings.Password.hints.precision}"
+                                                  shortDesc="#{bindings.Password.hints.tooltip}" id="it2"
+                                                  binding="#{backingBeanScope.backing_Start.it2}">
+                                        <f:validator binding="#{bindings.Password.validator}"/>
+                                    </af:inputText>
+                                    <f:facet name="footer">
+                                        <af:panelGroupLayout layout="horizontal" id="pgl1"
+                                                             binding="#{backingBeanScope.backing_Start.pgl1}">
+                                            <f:facet name="separator">
+                                                <af:spacer width="10" height="1" id="s1"
+                                                           binding="#{backingBeanScope.backing_Start.s1}"/>
+                                            </f:facet>
+                                            <af:commandButton
+                                                              text="New Login"
+                                                              disabled="#{!bindings.CreateInsert.enabled}" id="cb5"
+                                                              binding="#{backingBeanScope.backing_Start.cb5}"
+                                                              action="#{backingBeanScope.backing_Start.newLogin_action}"/>
+                                            <af:commandButton text="Login"
+                                                              disabled="#{!bindings.Commit.enabled}" id="cb6"
+                                                              binding="#{backingBeanScope.backing_Start.cb6}"
+                                                              action="#{backingBeanScope.backing_Start.login_action}"/>
+                                            <af:commandButton text="Logout" id="cb15"
+                                                              binding="#{backingBeanScope.backing_Start.cb15}"
+                                                              action="#{backingBeanScope.backing_Start.cb15_action}"/>
+                                            <af:commandButton text="pb3" id="cb16"
+                                                              binding="#{backingBeanScope.backing_Start.cb16}"
+                                                              action="#{backingBeanScope.backing_Start.cb16_action}"/>
+                                            <af:inputText label="Label 3" id="it9"
+                                                          binding="#{backingBeanScope.backing_Start.it9}"/>
+                                        </af:panelGroupLayout>
+                                    </f:facet>
+                                </af:panelFormLayout>
+                            </af:panelBox>
+                        </f:facet>
+                        <f:facet name="top">
+                            <af:image source="#{resource['images:start.png']}" id="i1"
+                                      binding="#{backingBeanScope.backing_Start.i1}"/>
+                        </f:facet>
+                    </af:decorativeBox>
+                </f:facet>
+                <f:facet name="center">
+                    <af:panelBox text="Admin" id="pb2" binding="#{backingBeanScope.backing_Start.pb2}" visible="false">
+                        <f:facet name="toolbar"/>
+                        <af:panelSplitter id="ps1" binding="#{backingBeanScope.backing_Start.ps1}"
+                                          splitterPosition="268">
+                            <f:facet name="first">
+                                <af:panelBox text="Pages " id="pb4" binding="#{backingBeanScope.backing_Start.pb4}">
+                                    <f:facet name="toolbar">
+                                        <af:group id="g1" binding="#{backingBeanScope.backing_Start.g1}">
+                                            <af:commandButton actionListener="#{bindings.Commit.execute}" text="Save"
+                                                              disabled="#{!bindings.Commit.enabled}" id="cb2"
+                                                              binding="#{backingBeanScope.backing_Start.cb2}"/>
+                                            <af:commandButton actionListener="#{bindings.CreateInsert1.execute}"
+                                                              text="New Page"
+                                                              disabled="#{!bindings.CreateInsert1.enabled}" id="cb1"
+                                                              binding="#{backingBeanScope.backing_Start.cb1}"/>
+                                        </af:group>
+                                    </f:facet>
+                                    <af:table value="#{bindings.Pages1.collectionModel}" var="row"
+                                              rows="#{bindings.Pages1.rangeSize}"
+                                              emptyText="#{bindings.Pages1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                              fetchSize="#{bindings.Pages1.rangeSize}" rowBandingInterval="0"
+                                              selectedRowKeys="#{bindings.Pages1.collectionModel.selectedRow}"
+                                              selectionListener="#{bindings.Pages1.collectionModel.makeCurrent}"
+                                              rowSelection="single" id="t1"
+                                              binding="#{backingBeanScope.backing_Start.t1}" partialTriggers="::cb1">
+                                        <af:column sortProperty="#{bindings.Pages1.hints.Pageno.name}" sortable="false"
+                                                   headerText="#{bindings.Pages1.hints.Pageno.label}" id="c1">
+                                            <af:inputText value="#{row.bindings.Pageno.inputValue}"
+                                                          label="#{bindings.Pages1.hints.Pageno.label}"
+                                                          required="#{bindings.Pages1.hints.Pageno.mandatory}"
+                                                          columns="#{bindings.Pages1.hints.Pageno.displayWidth}"
+                                                          maximumLength="#{bindings.Pages1.hints.Pageno.precision}"
+                                                          shortDesc="#{bindings.Pages1.hints.Pageno.tooltip}" id="it3">
+                                                <f:validator binding="#{row.bindings.Pageno.validator}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.Pages1.hints.Pagename.name}"
+                                                   sortable="false" headerText="#{bindings.Pages1.hints.Pagename.label}"
+                                                   id="c2">
+                                            <af:inputText value="#{row.bindings.Pagename.inputValue}"
+                                                          label="#{bindings.Pages1.hints.Pagename.label}"
+                                                          required="#{bindings.Pages1.hints.Pagename.mandatory}"
+                                                          columns="#{bindings.Pages1.hints.Pagename.displayWidth}"
+                                                          maximumLength="#{bindings.Pages1.hints.Pagename.precision}"
+                                                          shortDesc="#{bindings.Pages1.hints.Pagename.tooltip}"
+                                                          id="it4">
+                                                <f:validator binding="#{row.bindings.Pagename.validator}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                    </af:table>
+                                </af:panelBox>
+                            </f:facet>
+                            <f:facet name="second">
+                                <af:panelSplitter id="ps2" binding="#{backingBeanScope.backing_Start.ps2}"
+                                                  orientation="vertical" splitterPosition="140">
+                                    <f:facet name="first">
+                                        <af:panelBox text="Users" id="pb5"
+                                                     binding="#{backingBeanScope.backing_Start.pb5}">
+                                            <f:facet name="toolbar"/>
+                                            <af:panelFormLayout id="pfl2"
+                                                                binding="#{backingBeanScope.backing_Start.pfl2}">
+                                                <af:inputText value="#{bindings.Username1.inputValue}"
+                                                              label="#{bindings.Username1.hints.label}"
+                                                              required="#{bindings.Username1.hints.mandatory}"
+                                                              columns="#{bindings.Username1.hints.displayWidth}"
+                                                              maximumLength="#{bindings.Username1.hints.precision}"
+                                                              shortDesc="#{bindings.Username1.hints.tooltip}" id="it5"
+                                                              binding="#{backingBeanScope.backing_Start.it5}">
+                                                    <f:validator binding="#{bindings.Username1.validator}"/>
+                                                </af:inputText>
+                                                <af:inputText value="#{bindings.Password1.inputValue}"
+                                                              label="#{bindings.Password1.hints.label}"
+                                                              required="#{bindings.Password1.hints.mandatory}"
+                                                              columns="#{bindings.Password1.hints.displayWidth}"
+                                                              maximumLength="#{bindings.Password1.hints.precision}"
+                                                              shortDesc="#{bindings.Password1.hints.tooltip}" id="it6"
+                                                              binding="#{backingBeanScope.backing_Start.it6}">
+                                                    <f:validator binding="#{bindings.Password1.validator}"/>
+                                                </af:inputText>
+                                                <af:inputText value="#{bindings.Admin.inputValue}"
+                                                              label="#{bindings.Admin.hints.label}"
+                                                              required="#{bindings.Admin.hints.mandatory}"
+                                                              columns="#{bindings.Admin.hints.displayWidth}"
+                                                              maximumLength="#{bindings.Admin.hints.precision}"
+                                                              shortDesc="#{bindings.Admin.hints.tooltip}" id="it8"
+                                                              binding="#{backingBeanScope.backing_Start.it8}">
+                                                    <f:validator binding="#{bindings.Admin.validator}"/>
+                                                </af:inputText>
+                                                <f:facet name="footer">
+                                                    <af:panelGroupLayout layout="horizontal" id="pgl2"
+                                                                         binding="#{backingBeanScope.backing_Start.pgl2}">
+                                                        <f:facet name="separator">
+                                                            <af:spacer width="10" height="1" id="s2"
+                                                                       binding="#{backingBeanScope.backing_Start.s2}"/>
+                                                        </f:facet>
+                                                        <af:commandButton actionListener="#{bindings.First.execute}"
+                                                                          text="First"
+                                                                          disabled="#{!bindings.First.enabled}"
+                                                                          partialSubmit="true" id="cb3"
+                                                                          binding="#{backingBeanScope.backing_Start.cb3}"/>
+                                                        <af:commandButton actionListener="#{bindings.Previous.execute}"
+                                                                          text="Previous"
+                                                                          disabled="#{!bindings.Previous.enabled}"
+                                                                          partialSubmit="true" id="cb4"
+                                                                          binding="#{backingBeanScope.backing_Start.cb4}"/>
+                                                        <af:commandButton actionListener="#{bindings.Next.execute}"
+                                                                          text="Next"
+                                                                          disabled="#{!bindings.Next.enabled}"
+                                                                          partialSubmit="true" id="cb7"
+                                                                          binding="#{backingBeanScope.backing_Start.cb7}"/>
+                                                        <af:commandButton actionListener="#{bindings.Last.execute}"
+                                                                          text="Last"
+                                                                          disabled="#{!bindings.Last.enabled}"
+                                                                          partialSubmit="true" id="cb8"
+                                                                          binding="#{backingBeanScope.backing_Start.cb8}"/>
+                                                        <af:commandButton actionListener="#{bindings.CreateInsert2.execute}"
+                                                                          text="New User"
+                                                                          disabled="#{!bindings.CreateInsert2.enabled}"
+                                                                          id="cb9"
+                                                                          binding="#{backingBeanScope.backing_Start.cb9}"/>
+                                                        <af:commandButton actionListener="#{bindings.Commit.execute}"
+                                                                          text="Save"
+                                                                          disabled="#{!bindings.Commit.enabled}"
+                                                                          id="cb10"
+                                                                          binding="#{backingBeanScope.backing_Start.cb10}"/>
+                                                    </af:panelGroupLayout>
+                                                </f:facet>
+                                            </af:panelFormLayout>
+                                        </af:panelBox>
+                                    </f:facet>
+                                    <f:facet name="second">
+                                        <af:panelBox text="User Pages" id="pb6"
+                                                     binding="#{backingBeanScope.backing_Start.pb6}">
+                                            <f:facet name="toolbar">
+                                                <af:group id="g2" binding="#{backingBeanScope.backing_Start.g2}">
+                                                    <af:commandButton actionListener="#{bindings.Commit.execute}"
+                                                                      text="Save"
+                                                                      disabled="#{!bindings.Commit.enabled}" id="cb12"
+                                                                      binding="#{backingBeanScope.backing_Start.cb12}"/>
+                                                    <af:commandButton actionListener="#{bindings.CreateInsert3.execute}"
+                                                                      text="New Page"
+                                                                      disabled="#{!bindings.CreateInsert3.enabled}"
+                                                                      id="cb11"
+                                                                      binding="#{backingBeanScope.backing_Start.cb11}"/>
+                                                </af:group>
+                                            </f:facet>
+                                            <af:table value="#{bindings.Userspages2.collectionModel}" var="row"
+                                                      rows="#{bindings.Userspages2.rangeSize}"
+                                                      emptyText="#{bindings.Userspages2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                      fetchSize="#{bindings.Userspages2.rangeSize}"
+                                                      rowBandingInterval="0"
+                                                      selectedRowKeys="#{bindings.Userspages2.collectionModel.selectedRow}"
+                                                      selectionListener="#{bindings.Userspages2.collectionModel.makeCurrent}"
+                                                      rowSelection="single" id="t2"
+                                                      binding="#{backingBeanScope.backing_Start.t2}"
+                                                      partialTriggers="::cb11">
+                                                <af:column sortProperty="#{bindings.Userspages2.hints.Username.name}"
+                                                           sortable="false"
+                                                           headerText="#{bindings.Userspages2.hints.Username.label}"
+                                                           id="c3">
+                                                    <af:inputText value="#{row.bindings.Username.inputValue}"
+                                                                  label="#{bindings.Userspages2.hints.Username.label}"
+                                                                  required="#{bindings.Userspages2.hints.Username.mandatory}"
+                                                                  columns="#{bindings.Userspages2.hints.Username.displayWidth}"
+                                                                  maximumLength="#{bindings.Userspages2.hints.Username.precision}"
+                                                                  shortDesc="#{bindings.Userspages2.hints.Username.tooltip}"
+                                                                  id="it7">
+                                                        <f:validator binding="#{row.bindings.Username.validator}"/>
+                                                    </af:inputText>
+                                                </af:column>
+                                                <af:column sortProperty="#{bindings.Userspages2.hints.Pageno.name}"
+                                                           sortable="false"
+                                                           headerText="#{bindings.Userspages2.hints.Pageno.label}"
+                                                           id="c4">
+                                                    <af:inputComboboxListOfValues id="pagenoId"
+                                                                                  popupTitle="Search and Select: #{bindings.Userspages2.hints.Pageno.label}"
+                                                                                  value="#{row.bindings.Pageno.inputValue}"
+                                                                                  model="#{row.bindings.Pageno.listOfValuesModel}"
+                                                                                  required="#{bindings.Userspages2.hints.Pageno.mandatory}"
+                                                                                  columns="#{bindings.Userspages2.hints.Pageno.displayWidth}"
+                                                                                  shortDesc="#{bindings.Userspages2.hints.Pageno.tooltip}">
+                                                        <f:validator binding="#{row.bindings.Pageno.validator}"/>
+                                                        <af:convertNumber groupingUsed="false"
+                                                                          pattern="#{bindings.Userspages2.hints.Pageno.format}"/>
+                                                    </af:inputComboboxListOfValues>
+                                                </af:column>
+                                            </af:table>
+                                        </af:panelBox>
+                                    </f:facet>
+                                </af:panelSplitter>
+                            </f:facet>
+                        </af:panelSplitter>
+                    </af:panelBox>
+                    <!-- id="af_one_column_header_footer_stretched"   -->
+                </f:facet>
+                <f:facet name="bottom">
+                    <af:panelBox text="PanelBox2" id="pb3" binding="#{backingBeanScope.backing_Start.pb3}"
+                                 visible="true">
+                        <f:facet name="toolbar"/>
+                        <af:panelGroupLayout id="pgl3" binding="#{backingBeanScope.backing_Start.pgl3}">
+                            <af:commandButton text="Students" id="cb13"
+                                              binding="#{backingBeanScope.backing_Start.cb13}" action="students"
+                                              disabled="true"/>
+                            <af:commandButton text="Courses" id="cb14"
+                                              binding="#{backingBeanScope.backing_Start.cb14}" action="courses"
+                                              disabled="true"/>
+                        </af:panelGroupLayout>
+                    </af:panelBox>
+                </f:facet>
+            </af:panelStretchLayout>
+        </af:form>
+    </af:document>
+    <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_Start-->
+</f:view>

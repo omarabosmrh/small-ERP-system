@@ -1,0 +1,62 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <Page
+      id="Page2">
+      <property
+         name="wildcard">false</property>
+      <property
+         name="y">117.59766</property>
+      <property
+         name="x">70.0</property>
+      <property
+         name="jspName">/Start.jsf</property>
+   </Page>
+   <Page
+      id="Page3">
+      <property
+         name="wildcard">false</property>
+      <property
+         name="y">128.59766</property>
+      <property
+         name="x">418.0</property>
+      <property
+         name="jspName">/Students.jsf</property>
+   </Page>
+   <Page
+      id="Page4">
+      <property
+         name="wildcard">false</property>
+      <property
+         name="y">262.59766</property>
+      <property
+         name="x">419.0</property>
+      <property
+         name="jspName">/Courses.jsf</property>
+   </Page>
+   <NavigationCase
+      islink="true"
+      id="NavigationCase5"
+      from="Page2"
+      to="Page3">
+      <property
+         name="fromOutcome">students</property>
+      <property
+         name="description">Navigation Case</property>
+      <property
+         name="sdm:polyPoints">R50,111.0,117.24707,377.0,128.24707,L50</property>
+   </NavigationCase>
+   <NavigationCase
+      islink="true"
+      id="NavigationCase6"
+      from="Page2"
+      to="Page4">
+      <property
+         name="fromOutcome">courses</property>
+      <property
+         name="description">Navigation Case</property>
+      <property
+         name="sdm:polyPoints">R54,111.0,120.74707,378.0,262.24707,L50</property>
+   </NavigationCase>
+</SDM>

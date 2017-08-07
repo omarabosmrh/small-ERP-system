@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Userspages_VO"
+  Version="11.1.2.64.36"
+  SelectList="Userspages_EO.USERNAME, 
+       Userspages_EO.PAGENO"
+  FromList="USERSPAGES Userspages_EO"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <ViewAccessor
+    Name="Pages_VO1"
+    ViewObjectName="model.BC.VOs.Pages_VO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_Pageno"
+    ListVOName="Pages_VO1"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Pageno"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Pageno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Pagename"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="Userspages_EO"
+    Entity="model.BC.EOs.Userspages_EO"/>
+  <ViewAttribute
+    Name="Username"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Username"
+    EntityUsage="Userspages_EO"
+    AliasName="USERNAME"/>
+  <ViewAttribute
+    Name="Pageno"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Pageno"
+    EntityUsage="Userspages_EO"
+    AliasName="PAGENO"
+    LOVName="LOV_Pageno">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+</ViewObject>

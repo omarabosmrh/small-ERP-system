@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Users_VO"
+  Version="11.1.2.64.36"
+  SelectList="Users_EO.USERNAME, 
+       Users_EO.PASSWORD, 
+       Users_EO.ADMIN"
+  FromList="USERS Users_EO"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <EntityUsage
+    Name="Users_EO"
+    Entity="model.BC.EOs.Users_EO"/>
+  <ViewAttribute
+    Name="Username"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Username"
+    EntityUsage="Users_EO"
+    AliasName="USERNAME"/>
+  <ViewAttribute
+    Name="Password"
+    PrecisionRule="true"
+    EntityAttrName="Password"
+    EntityUsage="Users_EO"
+    AliasName="PASSWORD"/>
+  <ViewAttribute
+    Name="Admin"
+    PrecisionRule="true"
+    EntityAttrName="Admin"
+    EntityUsage="Users_EO"
+    AliasName="ADMIN"/>
+  <ViewLinkAccessor
+    Name="Userspages"
+    ViewLink="model.BC.VLs.UserspagesFk1_VL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+</ViewObject>

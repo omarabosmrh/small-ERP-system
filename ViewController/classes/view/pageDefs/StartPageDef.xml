@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.64.36" id="StartPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="Logins1" RangeSize="25" DataControl="AppModule_AMDataControl" id="Logins1Iterator"
+              ChangeEventPolicy="ppr"/>
+    <iterator Binds="Pages1" RangeSize="25" DataControl="AppModule_AMDataControl" id="Pages1Iterator"/>
+    <iterator Binds="Users1" RangeSize="25" DataControl="AppModule_AMDataControl" id="Users1Iterator"
+              ChangeEventPolicy="ppr"/>
+    <iterator Binds="Userspages2" RangeSize="25" DataControl="AppModule_AMDataControl" id="Userspages2Iterator"
+              ChangeEventPolicy="ppr"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="Logins1Iterator" id="Username">
+      <AttrNames>
+        <Item Value="Username"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Logins1Iterator" id="Password">
+      <AttrNames>
+        <Item Value="Password"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="Logins1Iterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModule_AMDataControl"/>
+    <tree IterBinding="Pages1Iterator" id="Pages1">
+      <nodeDefinition DefName="model.BC.VOs.Pages_VO" Name="Pages10">
+        <AttrNames>
+          <Item Value="Pageno"/>
+          <Item Value="Pagename"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="Pages1Iterator" id="CreateInsert1" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <attributeValues IterBinding="Users1Iterator" id="Username1">
+      <AttrNames>
+        <Item Value="Username"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Users1Iterator" id="Password1">
+      <AttrNames>
+        <Item Value="Password"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="Users1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="Users1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="Users1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="Users1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <action IterBinding="Users1Iterator" id="CreateInsert2" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <tree IterBinding="Userspages2Iterator" id="Userspages2">
+      <nodeDefinition DefName="model.BC.VOs.Userspages_VO" Name="Userspages20">
+        <AttrNames>
+          <Item Value="Username"/>
+          <Item Value="Pageno"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="Userspages2Iterator" id="CreateInsert3" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <attributeValues IterBinding="Users1Iterator" id="Admin">
+      <AttrNames>
+        <Item Value="Admin"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

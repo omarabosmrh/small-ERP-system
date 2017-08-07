@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Pages_VO"
+  Version="11.1.2.64.36"
+  SelectList="Pages_EO.PAGENO, 
+       Pages_EO.PAGENAME"
+  FromList="PAGES Pages_EO"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <EntityUsage
+    Name="Pages_EO"
+    Entity="model.BC.EOs.Pages_EO"/>
+  <ViewAttribute
+    Name="Pageno"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Pageno"
+    EntityUsage="Pages_EO"
+    AliasName="PAGENO"/>
+  <ViewAttribute
+    Name="Pagename"
+    PrecisionRule="true"
+    EntityAttrName="Pagename"
+    EntityUsage="Pages_EO"
+    AliasName="PAGENAME"/>
+  <ViewLinkAccessor
+    Name="Userspages"
+    ViewLink="model.BC.VLs.UserspagesFk2_VL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+</ViewObject>

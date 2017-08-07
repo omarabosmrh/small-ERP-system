@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Students_EO"
+  Version="11.1.2.64.36"
+  DBObjectType="table"
+  DBObjectName="STUDENTS"
+  AliasName="Students_EO"
+  BindingStyle="OracleName"
+  UseGlueCode="false">
+  <Attribute
+    Name="Stno"
+    IsNotNull="true"
+    ColumnName="STNO"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="STUDENTS"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="Stname"
+    Precision="20"
+    ColumnName="STNAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="STUDENTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Key
+    Name="StudentsPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="STUDENTS_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.BC.EOs.Students_EO.Stno"/>
+    </AttrArray>
+  </Key>
+</Entity>

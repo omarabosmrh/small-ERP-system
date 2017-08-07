@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Courses_VO"
+  Version="11.1.2.64.36"
+  SelectList="Courses_EO.COURSENO, 
+       Courses_EO.COURSENAME"
+  FromList="COURSES Courses_EO"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <EntityUsage
+    Name="Courses_EO"
+    Entity="model.BC.EOs.Courses_EO"/>
+  <ViewAttribute
+    Name="Courseno"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Courseno"
+    EntityUsage="Courses_EO"
+    AliasName="COURSENO"/>
+  <ViewAttribute
+    Name="Coursename"
+    PrecisionRule="true"
+    EntityAttrName="Coursename"
+    EntityUsage="Courses_EO"
+    AliasName="COURSENAME"/>
+</ViewObject>

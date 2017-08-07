@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="Courses.jsf" id="d1" binding="#{backingBeanScope.backing_Courses.d1}">
+        <af:messages id="m1" binding="#{backingBeanScope.backing_Courses.m1}"/>
+        <af:form id="f1" binding="#{backingBeanScope.backing_Courses.f1}">
+            <af:panelStretchLayout topHeight="50px" id="psl1" binding="#{backingBeanScope.backing_Courses.psl1}">
+                <f:facet name="top"/>
+                <f:facet name="center">
+                    <af:panelFormLayout id="pfl1" binding="#{backingBeanScope.backing_Courses.pfl1}">
+                        <af:inputText value="#{bindings.Courseno.inputValue}" label="#{bindings.Courseno.hints.label}"
+                                      required="#{bindings.Courseno.hints.mandatory}"
+                                      columns="#{bindings.Courseno.hints.displayWidth}"
+                                      maximumLength="#{bindings.Courseno.hints.precision}"
+                                      shortDesc="#{bindings.Courseno.hints.tooltip}" id="it1"
+                                      binding="#{backingBeanScope.backing_Courses.it1}">
+                            <f:validator binding="#{bindings.Courseno.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.Coursename.inputValue}"
+                                      label="#{bindings.Coursename.hints.label}"
+                                      required="#{bindings.Coursename.hints.mandatory}"
+                                      columns="#{bindings.Coursename.hints.displayWidth}"
+                                      maximumLength="#{bindings.Coursename.hints.precision}"
+                                      shortDesc="#{bindings.Coursename.hints.tooltip}" id="it2"
+                                      binding="#{backingBeanScope.backing_Courses.it2}">
+                            <f:validator binding="#{bindings.Coursename.validator}"/>
+                        </af:inputText>
+                        <f:facet name="footer">
+                            <af:panelGroupLayout layout="horizontal" id="pgl1"
+                                                 binding="#{backingBeanScope.backing_Courses.pgl1}">
+                                <f:facet name="separator">
+                                    <af:spacer width="10" height="1" id="s1"
+                                               binding="#{backingBeanScope.backing_Courses.s1}"/>
+                                </f:facet>
+                                <af:commandButton actionListener="#{bindings.First.execute}" text="First"
+                                                  disabled="#{!bindings.First.enabled}" partialSubmit="true" id="cb1"
+                                                  binding="#{backingBeanScope.backing_Courses.cb1}"/>
+                                <af:commandButton actionListener="#{bindings.Previous.execute}" text="Previous"
+                                                  disabled="#{!bindings.Previous.enabled}" partialSubmit="true"
+                                                  id="cb2" binding="#{backingBeanScope.backing_Courses.cb2}"/>
+                                <af:commandButton actionListener="#{bindings.Next.execute}" text="Next"
+                                                  disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="cb3"
+                                                  binding="#{backingBeanScope.backing_Courses.cb3}"/>
+                                <af:commandButton actionListener="#{bindings.Last.execute}" text="Last"
+                                                  disabled="#{!bindings.Last.enabled}" partialSubmit="true" id="cb4"
+                                                  binding="#{backingBeanScope.backing_Courses.cb4}"/>
+                                <af:commandButton actionListener="#{bindings.CreateInsert.execute}" text="CreateInsert"
+                                                  disabled="#{!bindings.CreateInsert.enabled}" id="cb5"
+                                                  binding="#{backingBeanScope.backing_Courses.cb5}"/>
+                                <af:commandButton actionListener="#{bindings.Commit.execute}" text="Commit"
+                                                  disabled="#{!bindings.Commit.enabled}" id="cb6"
+                                                  binding="#{backingBeanScope.backing_Courses.cb6}"/>
+                                <af:commandButton actionListener="#{bindings.Rollback.execute}" text="Rollback"
+                                                  disabled="#{!bindings.Rollback.enabled}" immediate="true" id="cb7"
+                                                  binding="#{backingBeanScope.backing_Courses.cb7}">
+                                    <af:resetActionListener/>
+                                </af:commandButton>
+                            </af:panelGroupLayout>
+                        </f:facet>
+                    </af:panelFormLayout>
+                    <!-- id="af_one_column_header_stretched"  -->
+                </f:facet>
+            </af:panelStretchLayout>
+        </af:form>
+    </af:document>
+    <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_Courses-->
+</f:view>
